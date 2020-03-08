@@ -1,13 +1,25 @@
 package com.example.microservices.currencyexchangeservice;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.math.BigDecimal;
 
+
+@Entity
 public class ExchangeValue {
 
+  @Id
   private Long id;
+
+  @Column(name ="currency_from")
   private String from;
+
+  @Column(name = "currency_to")
   private String to;
+
   private BigDecimal conversionMultiple;
+  private int port;
 
   public ExchangeValue() {}
 
@@ -32,5 +44,13 @@ public class ExchangeValue {
 
   public BigDecimal getConversionMultiple() {
     return conversionMultiple;
+  }
+
+  public void setPort(int port) {
+    this.port = port;
+  }
+
+  public int getPort() {
+    return port;
   }
 }
